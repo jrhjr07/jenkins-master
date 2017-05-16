@@ -34,3 +34,11 @@ RUN apt-get update -qq && apt-get install -qqy jenkins
 RUN curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-latest.tgz \
   && tar --strip-components=1 -xvzf docker-latest.tgz -C /usr/local/bin \
   && chmod +x /usr/local/bin/docker
+
+RUN cd /tmp \
+  && curl -Lk https://releases.rancher.com/compose/latest/rancher-compose-linux-amd64.tar.gz > rancher-compose.tar.gz \
+  && tar xzvf rancher-compose.tar.gz \
+  && mv rancher-compose*/rancher-compose /usr/local/bin \
+  && rm -rf rancher-compose.tar.gz && rmdir rancher-compose* \
+  && curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose \
+  && chmod +x /usr/local/bin/docker-compose
