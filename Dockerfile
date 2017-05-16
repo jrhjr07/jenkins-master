@@ -1,5 +1,5 @@
-FROM ubuntu:trusty
-MAINTAINER Bilal Sheikh <bilal@techtraits.com>
+FROM ubuntu:xenial
+MAINTAINER Jim Hopkins <jim@jhopkins.us>
 
 # expose the port
 EXPOSE 8080
